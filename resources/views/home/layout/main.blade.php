@@ -11,9 +11,11 @@
 </head>
 
 <body>
-    <div class="container">
+    <div class="container-fluid">
         @include('home.partials.header')
-        @yield('body')
+        <div class="container">
+            @yield('body')
+        </div>
         @include('home.partials.footer')
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
