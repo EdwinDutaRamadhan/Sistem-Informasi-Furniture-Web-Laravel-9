@@ -116,15 +116,29 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-6">
+                <h6 class="fw-bold">Our Product</h6>
+            </div>
+            <div class="col-6">
+                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
+                    <option value="Latest">Latest</option>
+                    <option value="Random">Random</option>
+                    <option value="Most Sold">Most Sold</option>
+                    <option value="Most Favorite">Most Favorite</option>
+                  </select>
+            </div>
+        </div>
+        <div class="row">
             @foreach ($data as $d)
                 <div class="col-sm-3 p-3 card border-0">
-                    <img src="{{ asset('img/gambar1.png') }}" class="card-img-top bg-secondary rounded-0" alt="...">
+                    <a href="home/shop/{{ Str::replace(' ', '-', $d->titles) }}"><img src="{{ asset('img/gambar1.png') }}" class="card-img-top bg-secondary rounded-0" alt="..."></a>
                     <div class="card-body">
                         <h5 class="card-title">{{ $d->titles }}</h5>
                         <p class="card-text">Rp. {{ number_format($d->prices,2,',','.') }}</p>
                     </div>
                 </div>
             @endforeach
+            {{ $data->links() }}
         </div>
     </div>
 

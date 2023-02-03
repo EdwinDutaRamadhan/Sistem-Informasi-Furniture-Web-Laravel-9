@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\Shop;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProdukController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', [ProdukController::class, 'index']);
+Route::get('/', function(){
+    return redirect('/home');
+});
+Route::get('/home', [ProdukController::class, 'index']);
+Route::resource('/home/shop', Shop::class);
