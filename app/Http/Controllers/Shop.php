@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Produk;
 use Illuminate\Http\Request;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Crypt;
 
 class Shop extends Controller
 {
@@ -45,11 +45,11 @@ class Shop extends Controller
      * @param  \App\Models\Produk  $produk
      * @return \Illuminate\Http\Response
      */
-    public function show($titles)
+    public function show($encrtypId)
     {
-        Str::replace('-', ' ', $titles);
+        $encrtypId = Crypt::decryptString($encrtypId);
         return view('home.public.detail',[
-            'data' => Produk::where('titles'),
+            'data' => Produk::find($encrtypId)
         ]);
     }
 
