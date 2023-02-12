@@ -15,7 +15,9 @@ class Shop extends Controller
      */
     public function index()
     {
-        //
+        return view('home.public.shop',[
+            'data' => Produk::latest()->paginate(8)
+        ]);
     }
 
     /**
@@ -49,7 +51,8 @@ class Shop extends Controller
     {
         $encrtypId = Crypt::decryptString($encrtypId);
         return view('home.public.detail',[
-            'data' => Produk::find($encrtypId)
+            'data' => Produk::find($encrtypId),
+            'dataRecommended' => Produk::inRandomOrder()->limit(4)->get()
         ]);
     }
 

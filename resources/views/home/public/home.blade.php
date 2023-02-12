@@ -115,20 +115,12 @@
                 </div>
             </div>
         </div>
-        <div class="row">
+        <div class="row"> {{-- product sorter --}}
             <div class="col-6">
-                <h6 class="fw-bold">Our Product</h6>
-            </div>
-            <div class="col-6">
-                <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                    <option value="Latest">Latest</option>
-                    <option value="Random">Random</option>
-                    <option value="Most Sold">Most Sold</option>
-                    <option value="Most Favorite">Most Favorite</option>
-                  </select>
+                <h6 class="fw-bold">Latest Product</h6>
             </div>
         </div>
-        <div class="row">
+        <div class="row"> {{-- product --}}
             @foreach ($data as $d)
                 <div class="col-sm-3 p-3 card border-0">
                     <a href="home/shop/{{ Crypt::encryptString($d->id) }}"><img src="{{ asset('img/gambar1.png') }}" class="card-img-top bg-secondary rounded-0" alt="..."></a>

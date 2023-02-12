@@ -19,3 +19,4 @@ Route::get('/', function(){
 });
 Route::get('/home', [ProdukController::class, 'index']);
 Route::resource('/home/shop', Shop::class);
+Route::post('/home/shop/',[ProdukController::class, 'show']);

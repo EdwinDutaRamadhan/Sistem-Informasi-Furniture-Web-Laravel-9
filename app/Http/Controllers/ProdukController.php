@@ -16,7 +16,7 @@ class ProdukController extends Controller
     public function index()
     {
         return view('home.public.home', [
-            'data' => Produk::paginate(8)
+            'data' => Produk::latest()->paginate(8)
         ]);
     }
 
@@ -49,7 +49,7 @@ class ProdukController extends Controller
      */
     public function show(Produk $produk)
     {
-        //
+        @ddd($produk);
     }
 
     /**
